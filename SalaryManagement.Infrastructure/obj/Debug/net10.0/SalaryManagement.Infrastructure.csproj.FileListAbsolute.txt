@@ -1,0 +1,17 @@
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryManagement.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryManagement.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryManagement.Infrastructure.AssemblyInfo.cs
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryManagement.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\bin\Debug\net10.0\SalaryManagement.Infrastructure.deps.json
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\bin\Debug\net10.0\SalaryManagement.Infrastructure.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\bin\Debug\net10.0\SalaryManagement.Infrastructure.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\bin\Debug\net10.0\SalaryManagement.Domain.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\bin\Debug\net10.0\SalaryManagement.Domain.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryMa.B580B370.Up2Date
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryManagement.Infrastructure.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\refint\SalaryManagement.Infrastructure.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryManagement.Infrastructure.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\ref\SalaryManagement.Infrastructure.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\bin\Debug\net10.0\SalaryManagement.Infrastructure.runtimeconfig.json
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Infrastructure\obj\Debug\net10.0\SalaryManagement.Infrastructure.genruntimeconfig.cache

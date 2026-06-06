@@ -1,0 +1,165 @@
+﻿@{
+    ViewData["Title"] = "Tính Thuế TNCN";
+}
+
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="card-dark mb-3">
+            <div class="card-header-dark">Tính Thuế TNCN Tương Tác</div>
+            <div class="p-4">
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span style="color:#9ca3af">Thu nhập gộp / tháng</span>
+                        <span style="color:#f59e0b" id="lblThuNhap">30.000.000 ₫</span>
+                    </div>
+                    <input type="range" id="sliderThuNhap" min="1000000" max="200000000" step="500000"
+                           value="30000000" class="w-100" style="accent-color:#f59e0b" />
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span style="color:#9ca3af">Số người phụ thuộc</span>
+                        <span style="color:#f59e0b" id="lblNguoiPhuThuoc">0 người</span>
+                    </div>
+                    <input type="range" id="sliderNguoiPhuThuoc" min="0" max="10" step="1"
+                           value="0" class="w-100" style="accent-color:#f59e0b" />
+                </div>
+
+                <div class="d-flex flex-column gap-3 mt-4">
+                    <div class="d-flex justify-content-between py-2" style="border-bottom:1px solid #2d3148">
+                        <span style="color:#9ca3af">Thu nhập gộp</span>
+                        <span id="outGross">30.000.000 ₫</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2" style="border-bottom:1px solid #2d3148">
+                        <span style="color:#9ca3af">BHXH/BHYT/BHTN (10.5%)</span>
+                        <span style="color:#f87171" id="outBaoHiem">-3.150.000 ₫</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2" style="border-bottom:1px solid #2d3148">
+                        <span style="color:#9ca3af">Giảm trừ bản thân</span>
+                        <span style="color:#f87171" id="outGiamTruBanThan">-15.500.000 ₫</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2" style="border-bottom:1px solid #2d3148">
+                        <span style="color:#9ca3af">Giảm trừ người phụ thuộc</span>
+                        <span style="color:#f87171" id="outGiamTruNPT">-0 ₫</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2" style="border-bottom:1px solid #2d3148">
+                        <span style="color:#9ca3af">Thu nhập tính thuế</span>
+                        <span style="color:#f59e0b" id="outThuNhapTinhThue">15.850.000 ₫</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2" style="border-bottom:1px solid #2d3148">
+                        <span style="color:#9ca3af">Thuế TNCN (lũy tiến)</span>
+                        <span style="color:#f87171" id="outThue">-1.627.500 ₫</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-3">
+                        <span style="font-weight:700;font-size:16px">Lương thực nhận</span>
+                        <span style="font-weight:800;font-size:20px;color:#f59e0b" id="outNet">25.222.500 ₫</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card-dark">
+            <div class="card-header-dark">Biểu Thuế Lũy Tiến 5 Bậc (2026)</div>
+            <div class="p-4">
+                <div id="taxBrackets" class="d-flex flex-column gap-3"></div>
+            </div>
+        </div>
+
+        <div class="card-dark mt-3">
+            <div class="card-header-dark">Ghi Chú</div>
+            <div class="p-4 d-flex flex-column gap-2" style="font-size:13px; color:#9ca3af">
+                <div>• Giảm trừ bản thân: <strong style="color:#fff">15.500.000 ₫/tháng</strong></div>
+                <div>• Giảm trừ người phụ thuộc: <strong style="color:#fff">6.200.000 ₫/người/tháng</strong></div>
+                <div>• BHXH: 8%, BHYT: 1.5%, BHTN: 1%</div>
+                <div>• Áp dụng theo Luật Thuế TNCN 2025 (hiệu lực 01/01/2026)</div>
+                <div>• Áp dụng cho cư dân thuế Việt Nam</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const GIAM_TRU_BAN_THAN = 15500000;
+        const GIAM_TRU_NPT = 6200000;
+        const BAO_HIEM_RATE = 0.105;
+
+        const brackets = [
+            { den: 10000000,  rate: 0.05 },
+            { den: 30000000,  rate: 0.10 },
+            { den: 60000000,  rate: 0.20 },
+            { den: 100000000, rate: 0.30 },
+            { den: Infinity,  rate: 0.35 },
+        ];
+
+        function tinhThue(tntt) {
+            if (tntt <= 0) return 0;
+            let thue = 0;
+            let prev = 0;
+            for (const b of brackets) {
+                const den = b.den === Infinity ? tntt : Math.min(b.den, tntt);
+                if (den > prev) {
+                    thue += (den - prev) * b.rate;
+                    prev = den;
+                }
+                if (tntt <= b.den) break;
+            }
+            return thue;
+        }
+
+        function fmt(n) {
+            return n.toLocaleString('vi-VN') + ' ₫';
+        }
+
+        function tinh() {
+            const gross = parseInt(document.getElementById('sliderThuNhap').value);
+            const npt = parseInt(document.getElementById('sliderNguoiPhuThuoc').value);
+
+            const baoHiem = gross * BAO_HIEM_RATE;
+            const giamTruNPT = npt * GIAM_TRU_NPT;
+            const tntt = Math.max(0, gross - baoHiem - GIAM_TRU_BAN_THAN - giamTruNPT);
+            const thue = tinhThue(tntt);
+            const net = gross - baoHiem - thue;
+
+            document.getElementById('lblThuNhap').textContent = fmt(gross);
+            document.getElementById('lblNguoiPhuThuoc').textContent = npt + ' người';
+            document.getElementById('outGross').textContent = fmt(gross);
+            document.getElementById('outBaoHiem').textContent = '-' + fmt(baoHiem);
+            document.getElementById('outGiamTruBanThan').textContent = '-' + fmt(GIAM_TRU_BAN_THAN);
+            document.getElementById('outGiamTruNPT').textContent = '-' + fmt(giamTruNPT);
+            document.getElementById('outThuNhapTinhThue').textContent = fmt(tntt);
+            document.getElementById('outThue').textContent = '-' + fmt(thue);
+            document.getElementById('outNet').textContent = fmt(net);
+
+            const colors = ['#34d399','#60a5fa','#f59e0b','#f87171','#e879f9'];
+            const labels = ['5%','10%','20%','30%','35%'];
+            let html = '';
+            let prev = 0;
+            for (let i = 0; i < brackets.length; i++) {
+                const den = brackets[i].den === Infinity ? tntt : Math.min(brackets[i].den, tntt);
+                const phan = Math.max(0, den - prev);
+                const tienThue = phan * brackets[i].rate;
+                const pct = tntt > 0 ? Math.min(100, (phan / tntt) * 100) : 0;
+                prev = den;
+
+                html += `
+                    <div>
+                        <div class="d-flex justify-content-between mb-1">
+                            <span style="color:#9ca3af;font-size:13px">${labels[i]}</span>
+                            <span style="color:${colors[i]};font-size:13px">${tienThue > 0 ? fmt(tienThue) : '—'}</span>
+                        </div>
+                        <div style="background:#2d3148;border-radius:4px;height:8px">
+                            <div style="background:${colors[i]};width:${pct}%;height:8px;border-radius:4px;transition:width 0.3s"></div>
+                        </div>
+                    </div>`;
+                if (tntt <= brackets[i].den) break;
+            }
+            document.getElementById('taxBrackets').innerHTML = html;
+        }
+
+        document.getElementById('sliderThuNhap').addEventListener('input', tinh);
+        document.getElementById('sliderNguoiPhuThuoc').addEventListener('input', tinh);
+        tinh();
+    </script>
+}

@@ -1,0 +1,201 @@
+﻿@model SalaryManagement.Domain.Entities.BangLuong
+
+@{
+    ViewData["Title"] = "Phiếu Lương";
+    var thang = (int)ViewBag.Thang;
+    var nam = (int)ViewBag.Nam;
+    var lichSu = ViewBag.LichSu as List<SalaryManagement.Domain.Entities.BangLuong>;
+}
+
+@section TopbarActions {
+    <form method="get" class="d-flex gap-2 align-items-center">
+        <select name="thang" class="form-select-dark">
+            @for (int i = 1; i <= 12; i++)
+            {
+                if (i == thang)
+                {
+                    @:
+                    <option value="@i" selected>Tháng @i</option>
+                }
+                else
+                {
+                    @:
+                    <option value="@i">Tháng @i</option>
+                }
+            }
+        </select>
+        <input type="number" name="nam" value="@nam" class="form-control-dark" style="width:90px" />
+        <button type="submit" class="btn-outline-light-custom btn">Xem</button>
+    </form>
+    <a href="/TaiKhoan/DangXuat" class="btn-outline-light-custom btn">
+        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+    </a>
+}
+
+<div class="row g-3">
+    <!-- Cột trái: Lịch sử lương -->
+    <div class="col-md-3">
+        <div class="card-dark">
+            <div class="card-header-dark">Lịch Sử Lương</div>
+            <div class="p-2">
+                @if (lichSu != null)
+                {
+                    @foreach (var bl in lichSu)
+                    {
+                        var isActive = bl.Thang == thang && bl.Nam == nam;
+                        <a href="/TaiKhoan/PhieuLuong?thang=@bl.Thang&nam=@bl.Nam"
+                               style="display:block; padding:10px 12px; border-radius:8px; text-decoration:none; margin-bottom:4px;
+                            background:@(isActive ? "#2d3148" : "transparent"); color:@(isActive ? "#f59e0b" : "#9ca3af")">
+                            <div style="font-weight:600">Tháng @bl.Thang/@bl.Nam</div>
+                            <div style="font-size:12px; color:#34d399">@bl.ThuNhapRong.ToString("N0") ₫</div>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Cột phải: Chi tiết phiếu lương -->
+    <div class="col-md-9">
+        @if (Model == null)
+        {
+            <div class="card-dark">
+                <div class="p-5 text-center" style="color:#6b7280">
+                    <i class="bi bi-inbox" style="font-size:48px"></i>
+                    <div class="mt-3">Chưa có phiếu lương tháng @thang/@nam</div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row g-3">
+                <!-- Thông tin nhân viên -->
+                <div class="col-12">
+                    <div class="card-dark">
+                        <div class="card-header-dark">Thông Tin Nhân Viên</div>
+                        <div class="p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div style="width:56px;height:56px;background:#f59e0b;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#1a1d2e">
+                                    @Model.NhanVien.HoTen.Substring(0, 1)
+                                </div>
+                                <div>
+                                    <div style="font-size:18px;font-weight:700;color:#fff">@Model.NhanVien.HoTen</div>
+                                    <div style="color:#6b7280;font-size:13px">@Model.NhanVien.ChucVu?.TenChucVu — @Model.NhanVien.PhongBan?.TenPhongBan</div>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-md-3">
+                                    <div style="color:#6b7280;font-size:12px">Mã NV</div>
+                                    <div style="color:#f59e0b;font-weight:600">@Model.NhanVien.MaNhanVien</div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div style="color:#6b7280;font-size:12px">Kỳ lương</div>
+                                    <div>Tháng @Model.Thang/@Model.Nam</div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div style="color:#6b7280;font-size:12px">Ngày công</div>
+                                    <div>@Model.SoNgayCongThucTe ngày</div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div style="color:#6b7280;font-size:12px">Trạng thái</div>
+                                    @if (Model.TrangThai == SalaryManagement.Domain.Enums.TrangThaiBangLuong.DaDuyet)
+                                    {
+                                        <span class="badge-success">Đã duyệt</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge-secondary">Nháp</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thu nhập và khấu trừ -->
+                <div class="col-md-6">
+                    <div class="card-dark h-100">
+                        <div class="card-header-dark" style="color:#34d399">
+                            <i class="bi bi-plus-circle"></i> Thu Nhập
+                        </div>
+                        <div class="p-4 d-flex flex-column gap-3">
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">Lương cơ bản</span>
+                                <span>@Model.LuongCoBan.ToString("N0") ₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">Phụ cấp</span>
+                                <span>@((Model.PhuCapAnTrua + Model.PhuCapXangXe + Model.PhuCapTrachNhiem + Model.PhuCapDienThoai + Model.PhuCapNhaO).ToString("N0")) ₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">Lương làm thêm</span>
+                                <span>@Model.LuongLamThem.ToString("N0") ₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">Thưởng</span>
+                                <span style="color:#34d399">+@Model.TongThuong.ToString("N0") ₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">Phạt</span>
+                                <span style="color:#f87171">-@Model.TongPhat.ToString("N0") ₫</span>
+                            </div>
+                            <hr style="border-color:#2d3148" />
+                            <div class="d-flex justify-content-between fw-bold">
+                                <span>Tổng Gross</span>
+                                <span style="color:#60a5fa">@Model.TongThuNhap.ToString("N0") ₫</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card-dark h-100">
+                        <div class="card-header-dark" style="color:#f87171">
+                            <i class="bi bi-dash-circle"></i> Khấu Trừ
+                        </div>
+                        <div class="p-4 d-flex flex-column gap-3">
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">BHXH (8%)</span>
+                                <span style="color:#f87171">-@Model.BaoHiemXaHoi.ToString("N0") ₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">BHYT (1.5%)</span>
+                                <span style="color:#f87171">-@Model.BaoHiemYTe.ToString("N0") ₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">BHTN (1%)</span>
+                                <span style="color:#f87171">-@Model.BaoHiemThatNghiep.ToString("N0") ₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span style="color:#9ca3af">Thuế TNCN</span>
+                                <span style="color:#f87171">-@Model.ThueThuNhapCaNhan.ToString("N0") ₫</span>
+                            </div>
+                            <hr style="border-color:#2d3148" />
+                            <div class="d-flex justify-content-between fw-bold">
+                                <span>Tổng khấu trừ</span>
+                                <span style="color:#f87171">
+                                    -@((Model.BaoHiemXaHoi + Model.BaoHiemYTe + Model.BaoHiemThatNghiep + Model.ThueThuNhapCaNhan).ToString("N0")) ₫
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lương thực nhận -->
+                <div class="col-12">
+                    <div class="card-dark" style="border-color:#f59e0b">
+                        <div class="p-4 text-center">
+                            <div style="color:#6b7280;font-size:13px;margin-bottom:8px">💰 Lương Thực Nhận (Net)</div>
+                            <div style="font-size:40px;font-weight:800;color:#f59e0b">
+                                @Model.ThuNhapRong.ToString("N0") ₫
+                            </div>
+                            <div style="color:#6b7280;font-size:13px;margin-top:8px">
+                                Gross: @Model.TongThuNhap.ToString("N0") ₫
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

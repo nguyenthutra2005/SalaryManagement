@@ -1,0 +1,11 @@
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\bin\Debug\net10.0\SalaryManagement.Domain.deps.json
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\bin\Debug\net10.0\SalaryManagement.Domain.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\bin\Debug\net10.0\SalaryManagement.Domain.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\obj\Debug\net10.0\SalaryManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\obj\Debug\net10.0\SalaryManagement.Domain.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\obj\Debug\net10.0\SalaryManagement.Domain.AssemblyInfo.cs
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\obj\Debug\net10.0\SalaryManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\obj\Debug\net10.0\SalaryManagement.Domain.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\obj\Debug\net10.0\refint\SalaryManagement.Domain.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\obj\Debug\net10.0\SalaryManagement.Domain.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Domain\obj\Debug\net10.0\ref\SalaryManagement.Domain.dll

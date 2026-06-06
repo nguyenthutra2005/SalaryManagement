@@ -1,0 +1,127 @@
+﻿@model List<SalaryManagement.Application.DTOs.BangLuongDto>
+
+@{
+    ViewData["Title"] = "Bảng Lương";
+    var thang = (int)ViewBag.Thang;
+    var nam = (int)ViewBag.Nam;
+}
+
+@section TopbarActions {
+    <form method="get" class="d-flex gap-2 align-items-center">
+        <i class="bi bi-calendar3" style="color:#6b7280"></i>
+        <select name="thang" class="form-select-dark">
+            @for (int i = 1; i <= 12; i++)
+            {
+                if (i == thang)
+                {
+                    @:<option value="@i" selected>Tháng @i</option>
+                }
+                else
+                {
+                    @:<option value="@i">Tháng @i</option>
+                }
+            }
+        </select>
+        <input type="number" name="nam" value="@nam" class="form-control-dark" style="width:90px" />
+        <button type="submit" class="btn-outline-light-custom btn">Xem</button>
+    </form>
+    <form method="post" action="/BangLuong/TaoHangLoat">
+        <input type="hidden" name="thang" value="@thang" />
+        <input type="hidden" name="nam" value="@nam" />
+        <button class="btn-gold btn" onclick="return confirm('Tạo bảng lương cho tất cả nhân viên tháng @thang/@nam?')">
+            <i class="bi bi-file-earmark-plus"></i> Tạo bảng lương
+        </button>
+    </form>
+    <a href="/BaoCao/XuatFile?thang=@thang&nam=@nam" class="btn-outline-light-custom btn">
+        <i class="bi bi-download"></i> Xuất file
+    </a>
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert-success-dark">
+        <i class="bi bi-check-circle"></i> @TempData["Success"]
+    </div>
+}
+
+<div class="card-dark">
+    <div class="card-header-dark d-flex justify-content-between align-items-center">
+        <span>Danh sách bảng lương tháng @thang/@nam</span>
+        <span style="color:#6b7280; font-size:13px">@Model.Count nhân viên</span>
+    </div>
+    <div class="p-3">
+        <table class="table-dark-custom">
+            <thead>
+                <tr>
+                    <th>Mã NV</th>
+                    <th>Họ Tên</th>
+                    <th>Phòng Ban</th>
+                    <th>Chức Vụ</th>
+                    <th class="text-end">Ngày Công</th>
+                    <th class="text-end">Gross</th>
+                    <th class="text-end">Net</th>
+                    <th class="text-center">Trạng Thái</th>
+                    <th class="text-center">Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="9" class="text-center" style="color:#6b7280; padding:40px">
+                            <i class="bi bi-inbox" style="font-size:32px"></i>
+                            <div class="mt-2">Chưa có bảng lương tháng này. Nhấn "Tạo bảng lương" để bắt đầu.</div>
+                        </td>
+                    </tr>
+                }
+                @foreach (var bl in Model)
+                {
+                    <tr>
+                        <td style="color:#f59e0b">@bl.MaNhanVien</td>
+                        <td>@bl.HoTen</td>
+                        <td style="color:#9ca3af">@bl.TenPhongBan</td>
+                        <td style="color:#9ca3af">@bl.TenChucVu</td>
+                        <td class="text-end">@bl.SoNgayCongThucTe</td>
+                        <td class="text-end">@bl.TongThuNhap.ToString("N0") ₫</td>
+                        <td class="text-end" style="color:#34d399">@bl.ThuNhapRong.ToString("N0") ₫</td>
+                        <td class="text-center">
+                            @if (bl.TrangThai == "DaDuyet")
+                            {
+                                <span class="badge-success">Đã duyệt</span>
+                            }
+                            else if (bl.TrangThai == "ChoDuyet")
+                            {
+                                <span class="badge-warning">Chờ duyệt</span>
+                            }
+                            else
+                            {
+                                <span class="badge-secondary">Nháp</span>
+                            }
+                        </td>
+                        <td class="text-center">
+                            <div class="d-flex gap-1 justify-content-center">
+                                <a href="/BangLuong/ChiTiet?nhanVienId=@bl.NhanVienId&thang=@thang&nam=@nam"
+                                   class="btn btn-sm btn-outline-light-custom">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                @if (bl.TrangThai != "DaDuyet")
+                                {
+                                    <form method="post" action="/BangLuong/Duyet" class="d-inline">
+                                        <input type="hidden" name="id" value="@bl.Id" />
+                                        <input type="hidden" name="thang" value="@thang" />
+                                        <input type="hidden" name="nam" value="@nam" />
+                                        <button class="btn btn-sm"
+                                                style="background:#065f46;color:#34d399;border:none;border-radius:6px"
+                                                onclick="return confirm('Duyệt bảng lương của @bl.HoTen?')">
+                                            <i class="bi bi-check-lg"></i>
+                                        </button>
+                                    </form>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+﻿@model SalaryManagement.Application.DTOs.DashboardDto
+
+@{
+    ViewData["Title"] = "Dashboard";
+    var thang = (int)ViewBag.Thang;
+    var nam = (int)ViewBag.Nam;
+}
+
+@section TopbarActions {
+    <form method="get" class="d-flex gap-2 align-items-center">
+        <i class="bi bi-calendar3" style="color:#6b7280"></i>
+        <select name="thang" class="form-select-dark">
+    @for (int i = 1; i <= 12; i++)
+    {
+        if (i == thang)
+        {
+            <option value="@i" selected>Tháng @i</option>
+        }
+        else
+        {
+            <option value="@i">Tháng @i</option>
+        }
+    }
+</select>
+        <input type="number" name="nam" value="@nam" class="form-control-dark" style="width:90px" />
+        <button class="btn-gold btn">Xem</button>
+    </form>
+}
+
+<!-- Stat Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="label">Tổng nhân viên</div>
+            <div class="value" style="color:#f59e0b">@Model.TongNhanVien</div>
+            <div class="sub-value">Đang làm việc</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="label">Tổng lương Gross</div>
+            <div class="value" style="color:#60a5fa">@Model.TongLuongGross.ToString("N0") ₫</div>
+            <div class="sub-value">Tháng @thang/@nam</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="label">Tổng lương Net</div>
+            <div class="value" style="color:#34d399">@Model.TongLuongNet.ToString("N0") ₫</div>
+            <div class="sub-value">Sau khấu trừ</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="label">Tổng thuế TNCN</div>
+            <div class="value" style="color:#f87171">@Model.TongThue.ToString("N0") ₫</div>
+            <div class="sub-value">Phải nộp</div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="label">Bảo hiểm nhân viên</div>
+            <div class="value" style="color:#a78bfa">@Model.TongBaoHiemNhanVien.ToString("N0") ₫</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="label">Bảo hiểm công ty</div>
+            <div class="value" style="color:#fb923c">@Model.TongBaoHiemCongTy.ToString("N0") ₫</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="label">Tổng chi phí công ty</div>
+            <div class="value" style="color:#fff">@Model.TongChiPhiCongTy.ToString("N0") ₫</div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card-dark h-100">
+            <div class="card-header-dark">Trạng Thái Bảng Lương</div>
+            <div class="p-4 d-flex flex-column gap-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="color:#9ca3af">Nháp</span>
+                    <span class="badge-secondary">@Model.SoLuongNhap</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="color:#9ca3af">Chờ duyệt</span>
+                    <span class="badge-warning">@Model.SoLuongChoDuyet</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="color:#9ca3af">Đã duyệt</span>
+                    <span class="badge-success">@Model.SoLuongDaDuyet</span>
+                </div>
+                <hr style="border-color:#2d3148" />
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="color:#9ca3af">Thưởng</span>
+                    <span style="color:#34d399">+@Model.TongThuong.ToString("N0") ₫</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="color:#9ca3af">Phạt</span>
+                    <span style="color:#f87171">-@Model.TongPhat.ToString("N0") ₫</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card-dark">
+            <div class="card-header-dark">Tổng Hợp Theo Phòng Ban</div>
+            <div class="p-3">
+                <table class="table-dark-custom">
+                    <thead>
+                        <tr>
+                            <th>Phòng Ban</th>
+                            <th class="text-center">Số NV</th>
+                            <th class="text-end">Tổng Gross</th>
+                            <th class="text-end">Tổng Net</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.TongHopTheoPhongBan.Any())
+                        {
+                            <tr><td colspan="4" class="text-center" style="color:#6b7280; padding:24px">Chưa có dữ liệu</td></tr>
+                        }
+                        @foreach (var pb in Model.TongHopTheoPhongBan)
+                        {
+                            <tr>
+                                <td>@pb.TenPhongBan</td>
+                                <td class="text-center">@pb.SoLuongNhanVien</td>
+                                <td class="text-end">@pb.TongLuongGross.ToString("N0") ₫</td>
+                                <td class="text-end" style="color:#34d399">@pb.TongLuongNet.ToString("N0") ₫</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+﻿@model SalaryManagement.Domain.Entities.NhanVien
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Nhân Viên";
+}
+
+@section TopbarActions {
+    <a href="/NhanVien/Index" class="btn-outline-light-custom btn">
+        <i class="bi bi-arrow-left"></i> Quay lại
+    </a>
+}
+
+<div style="max-width:700px">
+    <div class="card-dark">
+        <div class="card-header-dark">Chỉnh Sửa: @Model.HoTen</div>
+        <div class="p-4">
+            <form method="post" action="/NhanVien/ChinhSua/@Model.Id">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Mã nhân viên</label>
+                        <input value="@Model.MaNhanVien" class="form-control-dark w-100 mt-1" disabled />
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Họ tên *</label>
+                        <input name="HoTen" value="@Model.HoTen" class="form-control-dark w-100 mt-1" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Email</label>
+                        <input name="Email" value="@Model.Email" type="email" class="form-control-dark w-100 mt-1" />
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Điện thoại</label>
+                        <input name="DienThoai" value="@Model.DienThoai" class="form-control-dark w-100 mt-1" />
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Phòng ban *</label>
+                        <select name="PhongBanId" class="form-select-dark w-100 mt-1" required>
+                            @foreach (var pb in ViewBag.PhongBans as List<SalaryManagement.Domain.Entities.PhongBan>)
+                            {
+                                if (pb.Id == Model.PhongBanId)
+                                {
+                                    <option value="@pb.Id" selected>@pb.TenPhongBan</option>
+                                }
+                                else
+                                {
+                                    <option value="@pb.Id">@pb.TenPhongBan</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Chức vụ *</label>
+                        <select name="ChucVuId" class="form-select-dark w-100 mt-1" required>
+                            @foreach (var cv in ViewBag.ChucVus as List<SalaryManagement.Domain.Entities.ChucVu>)
+                            {
+                                if (cv.Id == Model.ChucVuId)
+                                {
+                                    <option value="@cv.Id" selected>@cv.TenChucVu</option>
+                                }
+                                else
+                                {
+                                    <option value="@cv.Id">@cv.TenChucVu</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Vùng lương tối thiểu *</label>
+                        <select name="Vung" class="form-select-dark w-100 mt-1" required>
+                            @for (int v = 1; v <= 4; v++)
+                            {
+                                var tenVung = v == 1 ? "Vùng I - 5.310.000đ (HCM, Hà Nội...)"
+                                            : v == 2 ? "Vùng II - 4.730.000đ"
+                                            : v == 3 ? "Vùng III - 4.140.000đ"
+                                            : "Vùng IV - 3.700.000đ";
+                                if (Model.Vung == v)
+                                {
+                                    <option value="@v" selected>@tenVung</option>
+                                }
+                                else
+                                {
+                                    <option value="@v">@tenVung</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Số người phụ thuộc</label>
+                        <input name="SoNguoiPhuThuoc" type="number" value="@Model.SoNguoiPhuThuoc" min="0" class="form-control-dark w-100 mt-1" />
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Lương cơ bản *</label>
+                        <input name="luongCoBan" type="number" value="@Model.CauHinhLuong?.LuongCoBan" class="form-control-dark w-100 mt-1" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Ngày công chuẩn</label>
+                        <input name="soNgayCong" type="number" value="@(Model.CauHinhLuong?.SoNgayCongChuan ?? 26)" min="1" max="31" class="form-control-dark w-100 mt-1" />
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn-gold btn px-4">
+                        <i class="bi bi-check-lg"></i> Lưu thay đổi
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

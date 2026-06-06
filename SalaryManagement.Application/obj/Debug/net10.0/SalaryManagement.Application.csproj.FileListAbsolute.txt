@@ -1,0 +1,17 @@
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\bin\Debug\net10.0\SalaryManagement.Application.deps.json
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\bin\Debug\net10.0\SalaryManagement.Application.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\bin\Debug\net10.0\SalaryManagement.Application.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\SalaryManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\SalaryManagement.Application.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\SalaryManagement.Application.AssemblyInfo.cs
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\SalaryManagement.Application.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\SalaryManagement.Application.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\refint\SalaryManagement.Application.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\SalaryManagement.Application.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\ref\SalaryManagement.Application.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\SalaryManagement.Application.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\bin\Debug\net10.0\SalaryManagement.Domain.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\bin\Debug\net10.0\SalaryManagement.Infrastructure.dll
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\bin\Debug\net10.0\SalaryManagement.Domain.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\bin\Debug\net10.0\SalaryManagement.Infrastructure.pdb
+C:\Users\admin\source\repos\SalaryManagement\SalaryManagement.Application\obj\Debug\net10.0\SalaryMa.7CAA40AB.Up2Date

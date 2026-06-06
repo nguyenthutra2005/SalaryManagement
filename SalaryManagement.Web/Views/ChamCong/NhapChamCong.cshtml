@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Nhập Chấm Công";
+    var thang = (int)ViewBag.Thang;
+    var nam = (int)ViewBag.Nam;
+    var nhanViens = ViewBag.NhanViens as List<SalaryManagement.Domain.Entities.NhanVien>;
+    var chamCongs = ViewBag.ChamCongs as List<SalaryManagement.Domain.Entities.ChamCong>;
+}
+
+@section TopbarActions {
+    <a href="/ChamCong/Index?thang=@thang&nam=@nam" class="btn-outline-light-custom btn">
+        <i class="bi bi-arrow-left"></i> Quay lại
+    </a>
+}
+
+<div class="card-dark">
+    <div class="card-header-dark">Nhập Chấm Công Tháng @thang/@nam</div>
+    <div class="p-4">
+        <form method="post" action="/ChamCong/LuuChamCong">
+            <input type="hidden" name="thang" value="@thang" />
+            <input type="hidden" name="nam" value="@nam" />
+
+            <table class="table-dark-custom">
+                <thead>
+                    <tr>
+                        <th>Họ Tên</th>
+                        <th>Phòng Ban</th>
+                        <th class="text-center">Ngày Làm Việc *</th>
+                        <th class="text-center">Ngày Nghỉ</th>
+                        <th class="text-center">Giờ Tăng Ca</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (nhanViens != null)
+                    {
+                        @foreach (var nv in nhanViens)
+                        {
+                            var cc = chamCongs?.FirstOrDefault(c => c.NhanVienId == nv.Id);
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="nhanVienIds" value="@nv.Id" />
+                                    @nv.HoTen
+                                </td>
+                                <td style="color:#9ca3af">@nv.PhongBan?.TenPhongBan</td>
+                                <td class="text-center">
+                                    <input type="number" name="soNgayLamViec" min="0" max="31"
+                                           value="@(cc?.SoNgayLamViec ?? 26)"
+                                           class="form-control-dark text-center" style="width:80px;margin:auto" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="number" name="soNgayNghi" min="0" max="31"
+                                           value="@(cc?.SoNgayNghi ?? 0)"
+                                           class="form-control-dark text-center" style="width:80px;margin:auto" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="number" name="soGioTangCa" min="0" step="0.5"
+                                           value="@(cc?.SoGioTangCa ?? 0)"
+                                           class="form-control-dark text-center" style="width:80px;margin:auto" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            <div class="mt-4">
+                <button type="submit" class="btn-gold btn px-4">
+                    <i class="bi bi-check-lg"></i> Lưu chấm công
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

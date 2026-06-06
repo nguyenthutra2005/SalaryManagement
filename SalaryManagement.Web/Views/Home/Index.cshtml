@@ -1,0 +1,146 @@
+﻿@{
+    ViewData["Title"] = "Trang Chủ";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayVN - Hệ Thống Quản Lý Lương</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            body { font-family: 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; }
+
+            /* Navbar */
+            .navbar { background: #1a1d2e; border-bottom: 1px solid #2d3148; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; }
+            .nav-brand { display: flex; align-items: center; gap: 12px; }
+            .brand-icon { width: 40px; height: 40px; background: #f59e0b; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; color: #1a1d2e; }
+            .brand-name { font-weight: 700; font-size: 20px; color: #fff; }
+            .btn-login { background: #f59e0b; color: #1a1d2e; font-weight: 700; border: none; border-radius: 8px; padding: 10px 24px; font-size: 15px; text-decoration: none; }
+            .btn-login:hover { background: #d97706; color: #1a1d2e; }
+
+            /* Hero */
+            .hero { padding: 100px 48px; text-align: center; }
+            .hero h1 { font-size: 56px; font-weight: 800; color: #fff; margin-bottom: 16px; }
+            .hero h1 span { color: #f59e0b; }
+            .hero p { font-size: 20px; color: #9ca3af; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+            .btn-hero { background: #f59e0b; color: #1a1d2e; font-weight: 700; border: none; border-radius: 10px; padding: 16px 40px; font-size: 18px; text-decoration: none; display: inline-block; }
+            .btn-hero:hover { background: #d97706; color: #1a1d2e; }
+
+            /* Features */
+            .features { padding: 80px 48px; background: #1a1d2e; }
+            .features h2 { text-align: center; font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 48px; }
+            .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+            .feature-card { background: #0f1117; border: 1px solid #2d3148; border-radius: 12px; padding: 28px; text-align: center; }
+            .feature-icon { font-size: 40px; margin-bottom: 16px; }
+            .feature-card h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+            .feature-card p { font-size: 14px; color: #9ca3af; line-height: 1.6; }
+
+            /* Team */
+            .team { padding: 80px 48px; }
+            .team h2 { text-align: center; font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+            .team-sub { text-align: center; color: #9ca3af; margin-bottom: 48px; }
+            .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+            .team-card { background: #1a1d2e; border: 1px solid #2d3148; border-radius: 12px; padding: 24px; text-align: center; }
+            .team-avatar { width: 60px; height: 60px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 22px; color: #1a1d2e; margin: 0 auto 12px; }
+            .team-name { font-weight: 700; color: #fff; margin-bottom: 4px; }
+            .team-role { font-size: 13px; color: #6b7280; }
+
+            /* Footer */
+            .footer { background: #1a1d2e; border-top: 1px solid #2d3148; padding: 24px 48px; text-align: center; color: #6b7280; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="brand-icon">P</div>
+            <div class="brand-name">PayVN</div>
+        </div>
+        <a href="/TaiKhoan/DangNhap" class="btn-login">
+            <i class="bi bi-box-arrow-in-right"></i> Đăng Nhập
+        </a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Hệ Thống <span>Quản Lý Lương</span><br />Chuyên Nghiệp</h1>
+        <p>Tự động hóa toàn bộ quy trình tính lương, BHXH, thuế TNCN theo đúng quy định pháp luật Việt Nam.</p>
+        <a href="/TaiKhoan/DangNhap" class="btn-hero">
+            <i class="bi bi-arrow-right-circle"></i> Bắt Đầu Ngay
+        </a>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2>Tính Năng Nổi Bật</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Tính Lương Tự Động</h3>
+                <p>Tự động tính lương cho toàn bộ nhân viên chỉ với 1 nút bấm dựa trên dữ liệu chấm công thực tế.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Báo Cáo Chi Tiết</h3>
+                <p>Dashboard tổng quan, phân tích chi phí theo phòng ban, xuất file Excel/CSV chuyên nghiệp.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Phân Quyền Rõ Ràng</h3>
+                <p>Admin quản lý toàn hệ thống, nhân viên chỉ xem phiếu lương của chính mình.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Chấm Công Linh Hoạt</h3>
+                <p>Nhập ngày công thực tế, giờ tăng ca. Tính lương tăng ca 150% đúng luật lao động.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Thuế TNCN Chuẩn Xác</h3>
+                <p>Tính thuế lũy tiến 7 bậc, miễn thuế phần tăng ca 50% theo TT 111/2013/TT-BTC.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h3>Thưởng & Phạt</h3>
+                <p>Quản lý linh hoạt các khoản thưởng KPI, hoa hồng, phạt vi phạm theo từng tháng.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team">
+        <h2>Thành Viên Nhóm</h2>
+        <p class="team-sub">Bài tập lớn môn Lập trình Web</p>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">A</div>
+                <div class="team-name">Nguyễn Thu Trà</div>
+                <div class="team-role">Backend & Database</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">B</div>
+                <div class="team-name">Chu Vân Khánh</div>
+                <div class="team-role">Frontend & UI/UX</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">C</div>
+                <div class="team-name">Nguyễn Thị Bích Huệ</div>
+                <div class="team-role">Business Logic</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        © 2026 PayVN - Hệ Thống Quản Lý Lương | Bài tập lớn Lập trình Web
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="SalaryManagement.API/SalaryManagement.API.csproj" />
+  <Project Path="SalaryManagement.Application/SalaryManagement.Application.csproj" />
+  <Project Path="SalaryManagement.Domain/SalaryManagement.Domain.csproj" />
+  <Project Path="SalaryManagement.Infrastructure/SalaryManagement.Infrastructure.csproj" />
+  <Project Path="SalaryManagement.Web/SalaryManagement.Web.csproj" />
+</Solution>

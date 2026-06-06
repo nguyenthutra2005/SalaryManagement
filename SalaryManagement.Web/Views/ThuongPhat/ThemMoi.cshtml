@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Thêm Thưởng / Phạt";
+}
+
+@section TopbarActions {
+    <a href="/ThuongPhat/Index" class="btn-outline-light-custom btn">
+        <i class="bi bi-arrow-left"></i> Quay lại
+    </a>
+}
+
+<div style="max-width:600px">
+    <div class="card-dark">
+        <div class="card-header-dark">Thêm Thưởng / Phạt</div>
+        <div class="p-4">
+            <form method="post" action="/ThuongPhat/ThemMoi">
+                <input type="hidden" name="DaXoa" value="false" />
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label style="color:#9ca3af;font-size:13px">Nhân viên *</label>
+                        <select name="NhanVienId" class="form-select-dark w-100 mt-1" required>
+                            <option value="">-- Chọn nhân viên --</option>
+                            @foreach (var nv in ViewBag.NhanViens as List<SalaryManagement.Domain.Entities.NhanVien>)
+                            {
+                                <option value="@nv.Id">@nv.HoTen</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Tháng *</label>
+                        <input name="Thang" type="number" min="1" max="12" value="@DateTime.Now.Month" class="form-control-dark w-100 mt-1" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#9ca3af;font-size:13px">Năm *</label>
+                        <input name="Nam" type="number" value="@DateTime.Now.Year" class="form-control-dark w-100 mt-1" required />
+                    </div>
+                    <div class="col-12">
+                        <label style="color:#9ca3af;font-size:13px">Loại *</label>
+                        <select name="Loai" class="form-select-dark w-100 mt-1" required>
+                            <option value="1">Thưởng hiệu suất</option>
+                            <option value="2">Hoa hồng</option>
+                            <option value="3">Thưởng lễ tết</option>
+                            <option value="4">Phạt vi phạm</option>
+                            <option value="5">Khấu trừ khác</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label style="color:#9ca3af;font-size:13px">Mô tả</label>
+                        <input name="MoTa" value="" class="form-control-dark w-100 mt-1" placeholder="Nhập mô tả (không bắt buộc)" />
+                    </div>
+                    <div class="col-12">
+                        <label style="color:#9ca3af;font-size:13px">Số tiền *</label>
+                        <input name="SoTien" type="number" min="0" class="form-control-dark w-100 mt-1" required />
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn-gold btn px-4">
+                        <i class="bi bi-check-lg"></i> Lưu
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
