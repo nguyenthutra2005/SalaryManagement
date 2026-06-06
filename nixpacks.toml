@@ -2,10 +2,10 @@
 providers = ["csharp"]
 
 [phases.install]
-cmds = ["dotnet restore SalaryManagement.Web/SalaryManagement.Web.csproj"]
+cmds = ["cd SalaryManagement.Web && dotnet restore"]
 
 [phases.build]
-cmds = ["dotnet publish SalaryManagement.Web/SalaryManagement.Web.csproj -c Release -o /app/publish"]
+cmds = ["cd SalaryManagement.Web && dotnet publish -c Release -o /app/publish"]
 
 [start]
 cmd = "dotnet /app/publish/SalaryManagement.Web.dll"
