@@ -12,15 +12,15 @@ using SalaryManagement.Infrastructure.Data;
 namespace SalaryManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260526005808_ThemChamCong2")]
-    partial class ThemChamCong2
+    [Migration("20260607031014_InitPostgres")]
+    partial class InitPostgres
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.8")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -147,6 +147,52 @@ namespace SalaryManagement.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("BangLuongs");
+                });
+
+            modelBuilder.Entity("SalaryManagement.Domain.Entities.CauHinhHeThong", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("DaXoa")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("GhiChu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("NgayCapNhat")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NgayHieuLuc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("PhuCapAnTruaMoiNgay")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PhuCapXangXeMoiNgay")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CauHinhHeThongs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DaXoa = false,
+                            GhiChu = "Cấu hình mặc định",
+                            NgayHieuLuc = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            NgayTao = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            PhuCapAnTruaMoiNgay = 30000m,
+                            PhuCapXangXeMoiNgay = 20000m
+                        });
                 });
 
             modelBuilder.Entity("SalaryManagement.Domain.Entities.CauHinhLuong", b =>
@@ -283,6 +329,15 @@ namespace SalaryManagement.Infrastructure.Migrations
                     b.Property<DateTime>("NgayTao")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("PhuCapDienThoai")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PhuCapNhaO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PhuCapTrachNhiem")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("TenChucVu")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -301,6 +356,9 @@ namespace SalaryManagement.Infrastructure.Migrations
                             LuongToiThieu = 50000000m,
                             MaChucVu = "CEO",
                             NgayTao = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            PhuCapDienThoai = 500000m,
+                            PhuCapNhaO = 1000000m,
+                            PhuCapTrachNhiem = 2000000m,
                             TenChucVu = "Giám đốc"
                         },
                         new
@@ -312,6 +370,9 @@ namespace SalaryManagement.Infrastructure.Migrations
                             LuongToiThieu = 20000000m,
                             MaChucVu = "MGR",
                             NgayTao = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            PhuCapDienThoai = 300000m,
+                            PhuCapNhaO = 500000m,
+                            PhuCapTrachNhiem = 1000000m,
                             TenChucVu = "Trưởng phòng"
                         });
                 });
@@ -391,6 +452,9 @@ namespace SalaryManagement.Infrastructure.Migrations
                     b.Property<int>("TrangThai")
                         .HasColumnType("int");
 
+                    b.Property<int>("Vung")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ChucVuId");
@@ -461,6 +525,59 @@ namespace SalaryManagement.Infrastructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SalaryManagement.Domain.Entities.TaiKhoan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("DaXoa")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MatKhau")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("NgayCapNhat")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("NhanVienId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenDangNhap")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("VaiTro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NhanVienId");
+
+                    b.HasIndex("TenDangNhap")
+                        .IsUnique();
+
+                    b.ToTable("TaiKhoans");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DaXoa = false,
+                            MatKhau = "admin123",
+                            NgayTao = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            TenDangNhap = "admin",
+                            VaiTro = "Admin"
+                        });
+                });
+
             modelBuilder.Entity("SalaryManagement.Domain.Entities.ThuongPhat", b =>
                 {
                     b.Property<int>("Id")
@@ -479,7 +596,6 @@ namespace SalaryManagement.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MoTa")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Nam")
@@ -562,6 +678,16 @@ namespace SalaryManagement.Infrastructure.Migrations
                     b.Navigation("ChucVu");
 
                     b.Navigation("PhongBan");
+                });
+
+            modelBuilder.Entity("SalaryManagement.Domain.Entities.TaiKhoan", b =>
+                {
+                    b.HasOne("SalaryManagement.Domain.Entities.NhanVien", "NhanVien")
+                        .WithMany()
+                        .HasForeignKey("NhanVienId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("NhanVien");
                 });
 
             modelBuilder.Entity("SalaryManagement.Domain.Entities.ThuongPhat", b =>

@@ -8,11 +8,30 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SalaryManagement.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitPostgres : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "CauHinhHeThongs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PhuCapAnTruaMoiNgay = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PhuCapXangXeMoiNgay = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    NgayHieuLuc = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NgayTao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NgayCapNhat = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DaXoa = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CauHinhHeThongs", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "ChucVus",
                 columns: table => new
@@ -24,6 +43,9 @@ namespace SalaryManagement.Infrastructure.Migrations
                     CapBac = table.Column<int>(type: "int", nullable: false),
                     LuongToiThieu = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     LuongToiDa = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PhuCapTrachNhiem = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PhuCapDienThoai = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PhuCapNhaO = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     NgayTao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NgayCapNhat = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DaXoa = table.Column<bool>(type: "bit", nullable: false)
@@ -74,6 +96,7 @@ namespace SalaryManagement.Infrastructure.Migrations
                     AnhDaiDien = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SoNguoiPhuThuoc = table.Column<int>(type: "int", nullable: false),
                     LaCuTru = table.Column<bool>(type: "bit", nullable: false),
+                    Vung = table.Column<int>(type: "int", nullable: false),
                     PhongBanId = table.Column<int>(type: "int", nullable: false),
                     ChucVuId = table.Column<int>(type: "int", nullable: false),
                     NgayTao = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -183,6 +206,60 @@ namespace SalaryManagement.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ChamCongs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NhanVienId = table.Column<int>(type: "int", nullable: false),
+                    Thang = table.Column<int>(type: "int", nullable: false),
+                    Nam = table.Column<int>(type: "int", nullable: false),
+                    SoNgayLamViec = table.Column<int>(type: "int", nullable: false),
+                    SoNgayNghi = table.Column<int>(type: "int", nullable: false),
+                    SoNgayNghiPhep = table.Column<int>(type: "int", nullable: false),
+                    SoGioTangCa = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NgayTao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NgayCapNhat = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DaXoa = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChamCongs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChamCongs_NhanViens_NhanVienId",
+                        column: x => x.NhanVienId,
+                        principalTable: "NhanViens",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TaiKhoans",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TenDangNhap = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MatKhau = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VaiTro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NhanVienId = table.Column<int>(type: "int", nullable: true),
+                    NgayTao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NgayCapNhat = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DaXoa = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TaiKhoans", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TaiKhoans_NhanViens_NhanVienId",
+                        column: x => x.NhanVienId,
+                        principalTable: "NhanViens",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ThuongPhats",
                 columns: table => new
                 {
@@ -193,7 +270,7 @@ namespace SalaryManagement.Infrastructure.Migrations
                     Thang = table.Column<int>(type: "int", nullable: false),
                     Nam = table.Column<int>(type: "int", nullable: false),
                     Loai = table.Column<int>(type: "int", nullable: false),
-                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SoTien = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     NguoiDuyet = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NgayTao = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -217,12 +294,17 @@ namespace SalaryManagement.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "CauHinhHeThongs",
+                columns: new[] { "Id", "DaXoa", "GhiChu", "NgayCapNhat", "NgayHieuLuc", "NgayTao", "PhuCapAnTruaMoiNgay", "PhuCapXangXeMoiNgay" },
+                values: new object[] { 1, false, "Cấu hình mặc định", null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), 30000m, 20000m });
+
+            migrationBuilder.InsertData(
                 table: "ChucVus",
-                columns: new[] { "Id", "CapBac", "DaXoa", "LuongToiDa", "LuongToiThieu", "MaChucVu", "NgayCapNhat", "NgayTao", "TenChucVu" },
+                columns: new[] { "Id", "CapBac", "DaXoa", "LuongToiDa", "LuongToiThieu", "MaChucVu", "NgayCapNhat", "NgayTao", "PhuCapDienThoai", "PhuCapNhaO", "PhuCapTrachNhiem", "TenChucVu" },
                 values: new object[,]
                 {
-                    { 1, 10, false, 200000000m, 50000000m, "CEO", null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Giám đốc" },
-                    { 2, 7, false, 50000000m, 20000000m, "MGR", null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Trưởng phòng" }
+                    { 1, 10, false, 200000000m, 50000000m, "CEO", null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), 500000m, 1000000m, 2000000m, "Giám đốc" },
+                    { 2, 7, false, 50000000m, 20000000m, "MGR", null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), 300000m, 500000m, 1000000m, "Trưởng phòng" }
                 });
 
             migrationBuilder.InsertData(
@@ -234,6 +316,11 @@ namespace SalaryManagement.Infrastructure.Migrations
                     { 2, false, "HR", null, null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Phòng Nhân sự", null }
                 });
 
+            migrationBuilder.InsertData(
+                table: "TaiKhoans",
+                columns: new[] { "Id", "DaXoa", "MatKhau", "NgayCapNhat", "NgayTao", "NhanVienId", "TenDangNhap", "VaiTro" },
+                values: new object[] { 1, false, "admin123", null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), null, "admin", "Admin" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_BangLuongs_NhanVienId_Thang_Nam",
                 table: "BangLuongs",
@@ -244,6 +331,12 @@ namespace SalaryManagement.Infrastructure.Migrations
                 name: "IX_CauHinhLuongs_NhanVienId",
                 table: "CauHinhLuongs",
                 column: "NhanVienId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChamCongs_NhanVienId_Thang_Nam",
+                table: "ChamCongs",
+                columns: new[] { "NhanVienId", "Thang", "Nam" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -270,6 +363,17 @@ namespace SalaryManagement.Infrastructure.Migrations
                 column: "PhongBanId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TaiKhoans_NhanVienId",
+                table: "TaiKhoans",
+                column: "NhanVienId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TaiKhoans_TenDangNhap",
+                table: "TaiKhoans",
+                column: "TenDangNhap",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ThuongPhats_BangLuongId",
                 table: "ThuongPhats",
                 column: "BangLuongId");
@@ -284,7 +388,16 @@ namespace SalaryManagement.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "CauHinhHeThongs");
+
+            migrationBuilder.DropTable(
                 name: "CauHinhLuongs");
+
+            migrationBuilder.DropTable(
+                name: "ChamCongs");
+
+            migrationBuilder.DropTable(
+                name: "TaiKhoans");
 
             migrationBuilder.DropTable(
                 name: "ThuongPhats");
