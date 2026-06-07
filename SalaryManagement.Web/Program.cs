@@ -41,29 +41,15 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    if (app.Environment.IsDevelopment())
+    try
     {
+        Console.WriteLine("Dang ket noi database...");
         dbContext.Database.EnsureCreated();
+        Console.WriteLine("Database san sang!");
     }
-    else
+    catch (Exception ex)
     {
-        var retries = 10;
-        while (retries > 0)
-        {
-            try
-            {
-                Console.WriteLine("Dang ket noi database...");
-                dbContext.Database.Migrate();
-                Console.WriteLine("Migration thanh cong!");
-                break;
-            }
-            catch (Exception ex)
-            {
-                retries--;
-                Console.WriteLine($"Thu lai... Con {retries} lan. Loi: {ex.Message}");
-                Thread.Sleep(5000);
-            }
-        }
+        Console.WriteLine($"Loi database: {ex.Message}");
     }
 }
 
