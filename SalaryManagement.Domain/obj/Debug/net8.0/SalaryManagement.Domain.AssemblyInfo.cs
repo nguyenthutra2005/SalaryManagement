@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SalaryManagement.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25693cb05d40677169a40da8baa6efd281440042")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e4a23bcd92d535c172cd0261f063ae2a99430e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("SalaryManagement.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SalaryManagement.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
