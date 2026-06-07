@@ -5,7 +5,7 @@ nixPkgs = ["dotnet-sdk_8"]
 cmds = ["dotnet restore SalaryManagement.Web/SalaryManagement.Web.csproj"]
 
 [phases.build]
-cmds = ["dotnet publish SalaryManagement.Web/SalaryManagement.Web.csproj -c Release -o out"]
+cmds = ["dotnet publish SalaryManagement.Web/SalaryManagement.Web.csproj -c Release -o out --no-restore"]
 
 [start]
-cmd = "dotnet out/SalaryManagement.Web.dll"
+cmd = "dotnet out/SalaryManagement.Web.dll --urls http://0.0.0.0:$PORT"
