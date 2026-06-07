@@ -1,3 +1,4 @@
+﻿using Npgsql.EntityFrameworkCore.PostgreSQL;
 using Microsoft.EntityFrameworkCore;
 using SalaryManagement.Application.Interfaces;
 using SalaryManagement.Application.Services;
@@ -18,7 +19,7 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<ITinhThueService, TinhThueService>();
 builder.Services.AddScoped<IBaoHiemService, BaoHiemService>();
@@ -55,7 +56,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
