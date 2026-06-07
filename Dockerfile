@@ -9,3 +9,4 @@ COPY --from=build /app/out .
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
 ENTRYPOINT ["dotnet", "SalaryManagement.Web.dll"]
+# Force rebuild 06/07/2026 10:39:03
