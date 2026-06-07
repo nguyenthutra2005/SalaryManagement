@@ -10,7 +10,6 @@ builder.Services.AddControllersWithViews(options =>
     options.Filters.Add(new Microsoft.AspNetCore.Mvc.IgnoreAntiforgeryTokenAttribute());
 });
 
-// Đăng ký Session
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -18,17 +17,37 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// Đăng ký DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Đăng ký các service
 builder.Services.AddScoped<ITinhThueService, TinhThueService>();
 builder.Services.AddScoped<IBaoHiemService, BaoHiemService>();
 builder.Services.AddScoped<IBangLuongService, BangLuongService>();
 builder.Services.AddScoped<IBaoCaoService, BaoCaoService>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var retries = 10;
+    while (retries > 0)
+    {
+        try
+        {
+            Console.WriteLine("Dang ket noi database...");
+            dbContext.Database.Migrate();
+            Console.WriteLine("Migration thanh cong!");
+            break;
+        }
+        catch (Exception ex)
+        {
+            retries--;
+            Console.WriteLine($"Thu lai... Con {retries} lan. Loi: {ex.Message}");
+            Thread.Sleep(5000);
+        }
+    }
+}
 
 if (!app.Environment.IsDevelopment())
 {
@@ -45,11 +64,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.Migrate();
-}
 
 app.Run();
