@@ -1,14 +1,8 @@
 [phases.setup]
-providers = ["csharp"]
-
-[phases.install]
-# Lệnh này yêu cầu dotnet restore đúng file project
-cmds = ["dotnet restore SalaryManagement.Web/SalaryManagement.Web.csproj"]
+nixPkgs = ["dotnet-sdk_10"]
 
 [phases.build]
-# Lệnh này yêu cầu dotnet publish đúng file project
-cmds = ["dotnet publish SalaryManagement.Web/SalaryManagement.Web.csproj -c Release -o /app/out"]
+cmds = ["dotnet publish SalaryManagement.Web/SalaryManagement.Web.csproj -c Release -o out"]
 
 [start]
-# Đảm bảo tên file .dll khớp với tên project của bạn
-cmd = "dotnet /app/out/SalaryManagement.Web.dll"
+cmd = "dotnet out/SalaryManagement.Web.dll"

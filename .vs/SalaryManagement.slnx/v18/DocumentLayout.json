@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1D73D488-C0AD-2965-2979-87ED1959BDC0}|SalaryManagement.Application\\SalaryManagement.Application.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.application\\salarymanagement.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1D73D488-C0AD-2965-2979-87ED1959BDC0}|SalaryManagement.Application\\SalaryManagement.Application.csproj|solutionrelative:salarymanagement.application\\salarymanagement.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9A66B4-F49D-E0EF-FA19-DB53431302B5}|SalaryManagement.Domain\\SalaryManagement.Domain.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.domain\\salarymanagement.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EF9A66B4-F49D-E0EF-FA19-DB53431302B5}|SalaryManagement.Domain\\SalaryManagement.Domain.csproj|solutionrelative:salarymanagement.domain\\salarymanagement.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF586C7E-C414-A9EB-BD36-6C7FBCCB431B}|SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.infrastructure\\salarymanagement.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CF586C7E-C414-A9EB-BD36-6C7FBCCB431B}|SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj|solutionrelative:salarymanagement.infrastructure\\salarymanagement.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{860B5500-6E7E-716F-7884-D9CE5661ED60}|SalaryManagement.API\\SalaryManagement.API.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.api\\salarymanagement.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{860B5500-6E7E-716F-7884-D9CE5661ED60}|SalaryManagement.API\\SalaryManagement.API.csproj|solutionrelative:salarymanagement.api\\salarymanagement.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0919F540-5EF8-30B0-302D-34C083D13F95}|SalaryManagement.Web\\SalaryManagement.Web.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.web\\views\\nhanvien\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0919F540-5EF8-30B0-302D-34C083D13F95}|SalaryManagement.Web\\SalaryManagement.Web.csproj|solutionrelative:salarymanagement.web\\views\\nhanvien\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -95,20 +111,8 @@
       "RelativeMoniker": "D:0:0:{1D73D488-C0AD-2965-2979-87ED1959BDC0}|SalaryManagement.Application\\SalaryManagement.Application.csproj|solutionrelative:salarymanagement.application\\interfaces\\ibaocaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D73D488-C0AD-2965-2979-87ED1959BDC0}|SalaryManagement.Application\\SalaryManagement.Application.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.application\\salarymanagement.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1D73D488-C0AD-2965-2979-87ED1959BDC0}|SalaryManagement.Application\\SalaryManagement.Application.csproj|solutionrelative:salarymanagement.application\\salarymanagement.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF586C7E-C414-A9EB-BD36-6C7FBCCB431B}|SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.infrastructure\\salarymanagement.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{CF586C7E-C414-A9EB-BD36-6C7FBCCB431B}|SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj|solutionrelative:salarymanagement.infrastructure\\salarymanagement.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1D73D488-C0AD-2965-2979-87ED1959BDC0}|SalaryManagement.Application\\SalaryManagement.Application.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.application\\services\\baohiemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D73D488-C0AD-2965-2979-87ED1959BDC0}|SalaryManagement.Application\\SalaryManagement.Application.csproj|solutionrelative:salarymanagement.application\\services\\baohiemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EF9A66B4-F49D-E0EF-FA19-DB53431302B5}|SalaryManagement.Domain\\SalaryManagement.Domain.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.domain\\salarymanagement.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{EF9A66B4-F49D-E0EF-FA19-DB53431302B5}|SalaryManagement.Domain\\SalaryManagement.Domain.csproj|solutionrelative:salarymanagement.domain\\salarymanagement.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D73D488-C0AD-2965-2979-87ED1959BDC0}|SalaryManagement.Application\\SalaryManagement.Application.csproj|c:\\users\\admin\\source\\repos\\salarymanagement\\salarymanagement.application\\dtos\\bangluongdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -146,28 +150,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 26,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SalaryManagement.API",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.API\\SalaryManagement.API.csproj",
+              "RelativeDocumentMoniker": "SalaryManagement.API\\SalaryManagement.API.csproj",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.API\\SalaryManagement.API.csproj",
+              "RelativeToolTip": "SalaryManagement.API\\SalaryManagement.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-06T18:41:56.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\NhanVien\\Index.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\NhanVien\\Index.cshtml",
               "ToolTip": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\NhanVien\\Index.cshtml",
               "RelativeToolTip": "SalaryManagement.Web\\Views\\NhanVien\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAFYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-05-24T14:50:44.383Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "BaoCaoController.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Controllers\\BaoCaoController.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Controllers\\BaoCaoController.cs",
@@ -179,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "ThuongPhatController.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Controllers\\ThuongPhatController.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Controllers\\ThuongPhatController.cs",
@@ -191,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\Shared\\Layout.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\Shared\\Layout.cshtml",
@@ -203,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "PhieuLuong.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\TaiKhoan\\PhieuLuong.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\TaiKhoan\\PhieuLuong.cshtml",
@@ -215,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "TaiKhoan.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\Entities\\TaiKhoan.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Domain\\Entities\\TaiKhoan.cs",
@@ -227,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "ThemMoi.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\ThuongPhat\\ThemMoi.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\ThuongPhat\\ThemMoi.cshtml",
@@ -239,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "ThuongPhat.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\Entities\\ThuongPhat.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Domain\\Entities\\ThuongPhat.cs",
@@ -251,7 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\_ViewImports.cshtml",
@@ -263,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "TrangThaiNhanVien.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\Enums\\TrangThaiNhanVien.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Domain\\Enums\\TrangThaiNhanVien.cs",
@@ -275,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\appsettings.json",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\appsettings.json",
@@ -287,7 +308,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "ThucTheCoBan.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\Common\\ThucTheCoBan.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Domain\\Common\\ThucTheCoBan.cs",
@@ -299,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "NhapChamCong.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\ChamCong\\NhapChamCong.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\ChamCong\\NhapChamCong.cshtml",
@@ -311,7 +332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\ChamCong\\Index.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\ChamCong\\Index.cshtml",
@@ -323,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "ChamCong.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\Entities\\ChamCong.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Domain\\Entities\\ChamCong.cs",
@@ -335,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "XuatFile.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\BaoCao\\XuatFile.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\BaoCao\\XuatFile.cshtml",
@@ -347,7 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\BaoCao\\Index.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\BaoCao\\Index.cshtml",
@@ -359,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\ThuongPhat\\Index.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\ThuongPhat\\Index.cshtml",
@@ -371,7 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\BangLuong\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\BangLuong\\Dashboard.cshtml",
@@ -383,7 +404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\BangLuong\\Index.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\BangLuong\\Index.cshtml",
@@ -395,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "ChiTiet.cshtml",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Web\\Views\\BangLuong\\ChiTiet.cshtml",
               "RelativeDocumentMoniker": "SalaryManagement.Web\\Views\\BangLuong\\ChiTiet.cshtml",
@@ -407,7 +428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "ITinhThueService.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\Interfaces\\ITinhThueService.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Application\\Interfaces\\ITinhThueService.cs",
@@ -419,7 +440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "IBaoCaoService.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\Interfaces\\IBaoCaoService.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Application\\Interfaces\\IBaoCaoService.cs",
@@ -431,31 +452,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 0,
               "Title": "SalaryManagement.Application.csproj",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\SalaryManagement.Application.csproj",
               "RelativeDocumentMoniker": "SalaryManagement.Application\\SalaryManagement.Application.csproj",
               "ToolTip": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\SalaryManagement.Application.csproj",
               "RelativeToolTip": "SalaryManagement.Application\\SalaryManagement.Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-24T09:18:04.761Z"
+              "WhenOpened": "2026-05-24T09:18:04.761Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 2,
               "Title": "SalaryManagement.Infrastructure.csproj",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj",
               "RelativeDocumentMoniker": "SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj",
-              "RelativeToolTip": "SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj*",
+              "RelativeToolTip": "SalaryManagement.Infrastructure\\SalaryManagement.Infrastructure.csproj*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-24T08:48:58.811Z"
+              "WhenOpened": "2026-05-24T08:48:58.811Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "BaoHiemService.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\Services\\BaoHiemService.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Application\\Services\\BaoHiemService.cs",
@@ -467,19 +490,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 1,
               "Title": "SalaryManagement.Domain.csproj",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\SalaryManagement.Domain.csproj",
               "RelativeDocumentMoniker": "SalaryManagement.Domain\\SalaryManagement.Domain.csproj",
-              "ToolTip": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\SalaryManagement.Domain.csproj",
-              "RelativeToolTip": "SalaryManagement.Domain\\SalaryManagement.Domain.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\SalaryManagement.Domain.csproj*",
+              "RelativeToolTip": "SalaryManagement.Domain\\SalaryManagement.Domain.csproj*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-24T08:41:37.838Z"
+              "WhenOpened": "2026-05-24T08:41:37.838Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "BangLuongDto.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\DTOs\\BangLuongDto.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Application\\DTOs\\BangLuongDto.cs",
@@ -491,7 +515,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "IBangLuongService.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\Interfaces\\IBangLuongService.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Application\\Interfaces\\IBangLuongService.cs",
@@ -503,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "IBaoHiemService.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\Interfaces\\IBaoHiemService.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Application\\Interfaces\\IBaoHiemService.cs",
@@ -515,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "PhongBan.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\Entities\\PhongBan.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Domain\\Entities\\PhongBan.cs",
@@ -527,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Application\\Class1.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Application\\Class1.cs",
@@ -539,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Infrastructure\\Class1.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Infrastructure\\Class1.cs",
@@ -551,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\SalaryManagement\\SalaryManagement.Domain\\Class1.cs",
               "RelativeDocumentMoniker": "SalaryManagement.Domain\\Class1.cs",
