@@ -5,6 +5,7 @@ using SalaryManagement.Application.Services;
 using SalaryManagement.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 builder.Services.AddControllersWithViews(options =>
 {
@@ -18,8 +19,17 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(connectionString));
+}
+else
+{
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseNpgsql(connectionString));
+}
 
 builder.Services.AddScoped<ITinhThueService, TinhThueService>();
 builder.Services.AddScoped<IBaoHiemService, BaoHiemService>();
@@ -31,21 +41,28 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    var retries = 10;
-    while (retries > 0)
+    if (app.Environment.IsDevelopment())
     {
-        try
+        dbContext.Database.EnsureCreated();
+    }
+    else
+    {
+        var retries = 10;
+        while (retries > 0)
         {
-            Console.WriteLine("Dang ket noi database...");
-            dbContext.Database.Migrate();
-            Console.WriteLine("Migration thanh cong!");
-            break;
-        }
-        catch (Exception ex)
-        {
-            retries--;
-            Console.WriteLine($"Thu lai... Con {retries} lan. Loi: {ex.Message}");
-            Thread.Sleep(5000);
+            try
+            {
+                Console.WriteLine("Dang ket noi database...");
+                dbContext.Database.Migrate();
+                Console.WriteLine("Migration thanh cong!");
+                break;
+            }
+            catch (Exception ex)
+            {
+                retries--;
+                Console.WriteLine($"Thu lai... Con {retries} lan. Loi: {ex.Message}");
+                Thread.Sleep(5000);
+            }
         }
     }
 }
